@@ -1,0 +1,14 @@
+C:\Users\blade\Source\Repos\Compiler\CompilerSimpleCSharp\bin\Debug\CompilerSimpleCSharp.exe.config
+C:\Users\blade\Source\Repos\Compiler\CompilerSimpleCSharp\bin\Debug\CompilerSimpleCSharp.exe
+C:\Users\blade\Source\Repos\Compiler\CompilerSimpleCSharp\bin\Debug\CompilerSimpleCSharp.pdb
+C:\Users\blade\Source\Repos\Compiler\CompilerSimpleCSharp\obj\Debug\CompilerSimpleCSharp.csproj.CoreCompileInputs.cache
+C:\Users\blade\Source\Repos\Compiler\CompilerSimpleCSharp\obj\Debug\CompilerSimpleCSharp.exe
+C:\Users\blade\Source\Repos\Compiler\CompilerSimpleCSharp\obj\Debug\CompilerSimpleCSharp.pdb
+C:\Users\blade\Source\Repos\Compiler\CompilerSimpleCSharp\obj\Debug\CompilerSimpleCSharp.csprojResolveAssemblyReference.cache
+C:\Users\blade\Source\Repos\1301262007\CompilerSimpleCSharp\bin\Debug\CompilerSimpleCSharp.exe.config
+C:\Users\blade\Source\Repos\1301262007\CompilerSimpleCSharp\bin\Debug\CompilerSimpleCSharp.exe
+C:\Users\blade\Source\Repos\1301262007\CompilerSimpleCSharp\bin\Debug\CompilerSimpleCSharp.pdb
+C:\Users\blade\Source\Repos\1301262007\CompilerSimpleCSharp\obj\Debug\CompilerSimpleCSharp.csprojResolveAssemblyReference.cache
+C:\Users\blade\Source\Repos\1301262007\CompilerSimpleCSharp\obj\Debug\CompilerSimpleCSharp.csproj.CoreCompileInputs.cache
+C:\Users\blade\Source\Repos\1301262007\CompilerSimpleCSharp\obj\Debug\CompilerSimpleCSharp.exe
+C:\Users\blade\Source\Repos\1301262007\CompilerSimpleCSharp\obj\Debug\CompilerSimpleCSharp.pdb
