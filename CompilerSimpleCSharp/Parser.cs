@@ -31,7 +31,6 @@ namespace CompilerSimpleCSharp
         #region IsA...
         private bool IsStatement()
         {
-
             if (IsExpression())
             {
                 if (!CheckSpecialSymbol(";"))
@@ -67,9 +66,10 @@ namespace CompilerSimpleCSharp
             return false;
         }
 
+        //AdditiveExpression = MultiplicativeExpression {('+' | '-') MultiplicativeExpression}
         private bool IsAdditiveExpression()
         {
-            if (isMultiplicativeExpression())
+            if (IsMultiplicativeExpression())
             {
                 if (CheckSpecialSymbol("+"))
                 {
@@ -80,24 +80,53 @@ namespace CompilerSimpleCSharp
                     }
                     emiter.AddPlus();
                 }
+                if (CheckSpecialSymbol("-"))
+                {
+                    if (!IsAdditiveExpression())
+                    {
+                        Console.WriteLine("Multiplicative Expression Required");
+                        return false;
+                    }
+                    emiter.AddMinus();
+                }
                 return true;
             }
             return false;
         }
 
-        private bool isMultiplicativeExpression()
+        //MultiplicativeExpression = PrimaryExpression {('*' | '/' | '%') PrimaryExpression}
+    private bool IsMultiplicativeExpression()
         {
             if (IsPrimaryExpression())
             {
                 if (CheckSpecialSymbol("*"))
                 {
-                    if (!isMultiplicativeExpression())
+                    if (!IsMultiplicativeExpression())
                     {
                         Console.WriteLine("Primary Expression Required!");
                         return false;
                     }
                     emiter.AddMul();
                 }
+                if (CheckSpecialSymbol("/"))
+                {
+                    if (!IsMultiplicativeExpression())
+                    {
+                        Console.WriteLine("Primary Expression Required!");
+                        return false;
+                    }
+                    emiter.AddDiv();
+                }
+                if (CheckSpecialSymbol("%"))
+                {
+                    if (!IsMultiplicativeExpression())
+                    {
+                        Console.WriteLine("Primary Expression Required!");
+                        return false;
+                    }
+                    emiter.AddRem();
+                }
+
                 return true;
             }
             return false;
@@ -132,6 +161,15 @@ namespace CompilerSimpleCSharp
                     emiter.AddDuplicate();
                     emiter.AddGetNumber(1);
                     emiter.AddPlus();
+                    emiter.AddLocalVarAssigment(localVar.localVariableInfo);
+                    return true;
+                }
+                if (CheckSpecialSymbol("--"))
+                {
+                    emiter.AddGetLocalVar(localVar.localVariableInfo);
+                    emiter.AddDuplicate();
+                    emiter.AddGetNumber(1);
+                    emiter.AddMinus();
                     emiter.AddLocalVarAssigment(localVar.localVariableInfo);
                     return true;
                 }
@@ -208,6 +246,22 @@ namespace CompilerSimpleCSharp
                 emiter.AddGetLocalVar(localVariable.localVariableInfo);
                 emiter.AddGetNumber(1);
                 emiter.AddPlus();
+                emiter.AddDuplicate();
+                emiter.AddLocalVarAssigment(localVariable.localVariableInfo);
+                return true;
+            }
+            if (CheckSpecialSymbol("--"))
+            {
+                tempToken = currentToken;
+                if (!CheckIdent())
+                {
+                    Console.WriteLine("Ident Required!");
+                    return false;
+                }
+                LocalVariableSymbol localVariable = this.GetLocalVariableSymbol(tempToken);
+                emiter.AddGetLocalVar(localVariable.localVariableInfo);
+                emiter.AddGetNumber(1);
+                emiter.AddMinus();
                 emiter.AddDuplicate();
                 emiter.AddLocalVarAssigment(localVariable.localVariableInfo);
                 return true;

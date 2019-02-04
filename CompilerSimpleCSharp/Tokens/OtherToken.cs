@@ -4,11 +4,13 @@ namespace CompilerSimpleCSharp
 {
     internal class OtherToken : Token
     {
-        private string value;
+        public string value;
 
-        public OtherToken(string value)
+        public OtherToken(string value) : base()
         {
-            this.value = value;
+            this.Value = value;
         }
+
+        public string Value { get => value; set => this.value = value; }
     }
 }

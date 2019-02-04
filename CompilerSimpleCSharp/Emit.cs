@@ -58,11 +58,6 @@ namespace CompilerSimpleCSharp
             return retValue;
         }
 
-        internal void AddPlus()
-        {
-            ilGenerator.Emit(OpCodes.Add);
-        }
-
         internal void AddGetLocalVar(LocalVariableInfo localVariableInfo)
         {
             ilGenerator.Emit(OpCodes.Ldloc, (LocalBuilder)localVariableInfo);
@@ -100,11 +95,31 @@ namespace CompilerSimpleCSharp
             {
                 ilGenerator.Emit(OpCodes.Ldc_I8, value);
             }
+        }        
+
+        internal void AddPlus()
+        {
+            ilGenerator.Emit(OpCodes.Add);
+        }        
+
+        internal void AddMinus()
+        {
+            ilGenerator.Emit(OpCodes.Sub);
         }
 
         internal void AddMul()
         {
             ilGenerator.Emit(OpCodes.Mul);
+        }
+
+        internal void AddDiv()
+        {
+            ilGenerator.Emit(OpCodes.Div);
+        }
+
+        internal void AddRem()
+        {
+            ilGenerator.Emit(OpCodes.Rem);
         }
 
         internal void EmitReadLine()
